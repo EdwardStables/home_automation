@@ -3,6 +3,7 @@
 import argparse
 from system_base import Coffee
 from mqtt_wrapper import mqtt_subscriber
+from time import sleep
 
 def get_args():
     parser = argparse.ArgumentParser(description="Run server in background for automation system")
@@ -20,7 +21,8 @@ def main():
         Coffee(mqtt_subscriber(hostname, port))
     ]
 
-
+    while True:
+        sleep(1)
 
 
 if __name__ == "__main__":
