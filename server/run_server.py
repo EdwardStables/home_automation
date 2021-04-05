@@ -8,7 +8,7 @@ from time import sleep
 def get_args():
     parser = argparse.ArgumentParser(description="Run server in background for automation system")
     parser.add_argument("-n", dest="hostname", type=str, default="localhost", help="Hostname")
-    parser.add_argument("-p", dest="port", type=int, default=8080, help="Port")
+    parser.add_argument("-p", dest="port", type=int, default=1883, help="Port")
     args = parser.parse_args()
     return args
 
