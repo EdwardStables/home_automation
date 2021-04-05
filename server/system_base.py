@@ -7,6 +7,11 @@ class System:
         self.name = name
         self.mqtt = mqtt
         self.topic_callbacks = topic_callbacks
+
+        if "test" not in self.topic_callbacks:
+            self.topic_callbacks["test"] = self.echo_message
+
+
         self.mqtt.set_data(
             ['/'.join([self.name, t]) for t in self.topic_callbacks.keys()], 
             self.rx
@@ -24,7 +29,6 @@ class System:
         message = json.loads(message)
         target = self.topic_callbacks.get(topic, self.echo_message)
         target(message)
-
 class Coffee(System):
     def __init__(self, mqtt):
         super().__init__(
