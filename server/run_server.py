@@ -2,7 +2,7 @@
 
 import argparse
 from system_base import Coffee
-from mqtt import mqtt_subscriber
+from mqtt_wrapper import mqtt_subscriber
 
 def get_args():
     parser = argparse.ArgumentParser(description="Run server in background for automation system")
